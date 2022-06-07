@@ -1,0 +1,28 @@
+{
+    "name": "eadpucv/bo-skin",
+    "description": "Bo is a flavour of MediaWiki Chameleon skin, specially crafted for Amereida and later for Casiopea, which have separate layouts",
+    "type": "mediawiki-skin",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Herbert Spencer",
+            "email": "hspencer@ead.cl",
+			"role": "Creator"
+        },
+		{
+			"name": "Felipe Lavín",
+			"email": "felipe@bloom-ux.com",
+			"role": "Packager"
+		}
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "mediawiki/chameleon-skin": "^4",
+        "composer/installers": "^2|^1.9"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
