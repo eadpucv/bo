@@ -3,34 +3,35 @@
 
 **Bo** is named after the poet **Efraín Tomás Bó**.
 
-## Using Bo
+## Installation
 
-To use this flavour on your wiki you will have to install the [MediaWiki Chameleon skin](https://www.mediawiki.org/wiki/Skin:Chameleon) first and clone this repo in the "skins" directory of your wiki.
+You can install **Bo** using [Composer](https://getcomposer.org/).
+
+On the root of your MediaWiki installation, run:
+
+```
+COMPOSER=composer.local.json composer require --no-update eadpucv/bo-skin:^2
+
+composer update eadpucv/bo-skin --no-dev -o
+```
+
+This will also install the [Chameleon skin](https://www.mediawiki.org/wiki/Skin:Chameleon) and other required packages.
 
 For making it work you need to modify your  "LocalSettings.php" as follows:
 
-```
-# - SKINS
+```php
+# - LOAD SKIN
 wfLoadSkin( 'chameleon' );
 
 # -- BO SETTINGS
+## --------------------------------------------- layout --------------------------------------------
+$egChameleonLayoutFile= "$IP/skins/bo/layouts/layout-2022.xml";
 
-## --------------------------------------------- layout ---------------------------------------------
-
-$egChameleonLayoutFile= '/var/www/casiopea/htdocs/skins/bo/layouts/layout-2022.xml';
-# $egChameleonLayoutFile =  __DIR__ . + '/skins/bo/layout-tools.xml'; // esto no sirve!?
-
-
-## --------------------------------------------- theme  ---------------------------------------------
-
-# $egChameleonThemeFile = ''; // empty restores bootstrap's default
-$egChameleonThemeFile  = '/var/www/casiopea/htdocs/skins/bo/scss/bo-riables.scss';
-
+## --------------------------------------------- theme  --------------------------------------------
+$egChameleonThemeFile  = "$IP/skins/bo/scss/bo-riables.scss";
 
 ## --------------------------------------------- bo     ---------------------------------------------
-
 $egChameleonExternalStyleModules = [
-    '/var/www/casiopea/htdocs/skins/bo/scss/bo.scss' => 'afterFunctions'
+  $IP . '/skins/bo/scss/bo.scss' => 'afterFunctions'
 ];
-
 ```
